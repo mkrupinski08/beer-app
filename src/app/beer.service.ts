@@ -49,4 +49,12 @@ export class BeerService {
     );
   }
 
+  getBeersByName(name: string): Observable<Beer[]> {
+    const beersByNameUrl = `${this.baseUrl}/beers?beer_name=${name}`;
+    return this.http.get<Beer[]>(beersByNameUrl).pipe(
+      tap(_ => this.log('fetched beers by name')),
+      catchError(this.handleError<Beer[]>('getBeersByName', []))
+      );
+  }
+
 }
