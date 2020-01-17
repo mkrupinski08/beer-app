@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+//import { ActivatedRoute } from '@angular/router';
+//import { Location } from '@angular/common';
+
+import { Beer } from '../beer';
+import { BeerService } from '../beer.service';
 
 @Component({
   selector: 'app-beer-detail',
@@ -7,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeerDetailComponent implements OnInit {
 
-  constructor() { }
+  beer: Beer;
+
+  constructor(
+    //private route: ActivatedRoute,
+    private beerService: BeerService
+    /*private location: Location*/) { }
 
   ngOnInit() {
+    this.getRandomBeer();
+  }
+
+ // goBack(): void {
+ //   this.location.back();
+ // }
+
+  getRandomBeer(): void {
+    this.beerService.getRandomBeer()
+        .subscribe(beer => this.beer = beer);
   }
 
 }

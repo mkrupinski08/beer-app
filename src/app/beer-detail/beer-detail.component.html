@@ -1,1 +1,21 @@
-<p>beer-detail works!</p>
+<ul class="beer">
+  <li *ngFor="let b of beer">
+    {{b.id}}
+    {{b.name}}
+    {{b.tagline}}
+    {{b.first_brewed}}
+    {{b.description}}
+    {{b.image_url}}
+    {{b.abv}}
+    {{b.ibu}}
+    {{b.target_fg}}
+    {{b.target_og}}
+    {{b.ebc}}
+    {{b.srm}}
+    {{b.ph}}
+    {{b.attenuation_level}}
+    {{b.food_pairing}}
+    {{b.brewers_tips}}
+    {{b.contributed_by}}
+  </li>
+</ul>

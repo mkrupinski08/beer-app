@@ -41,4 +41,12 @@ export class BeerService {
       );
   }
 
+  getRandomBeer(): Observable<Beer> {
+    const randomBeerUrl = `${this.baseUrl}/beers/random`;
+    return this.http.get<Beer>(randomBeerUrl).pipe(
+      tap(_ => this.log('fetched random beer')),
+      catchError(this.handleError<Beer>('getRandomBeer'))
+    );
+  }
+
 }
